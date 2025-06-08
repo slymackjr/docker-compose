@@ -1,0 +1,23 @@
+{
+  "name": "mysql-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+    "tasks.max": "1",
+    "database.hostname": "mysql",
+    "database.port": "3306",
+    "database.user": "root",
+    "database.password": "L@E9p[Kc=~Ev2tQ+",
+    "database.server.id": "1",
+    "database.server.name": "main",
+    "database.include.list": "xpawa_lmsdb",
+    "table.include.list": "xpawa_lmsdb.extension_application,xpawa_lmsdb.loan,xpawa_lmsdb.loan_application,xpawa_lmsdb.schedule,xpawa_lmsdb.loan_terms,xpawa_lmsdb.repayment,xpawa_lmsdb.rollover",
+    "database.history.kafka.bootstrap.servers": "kafka:29092",
+    "database.history.kafka.topic": "schemahistory.xpawa",
+    "schema.history.internal.kafka.bootstrap.servers": "kafka:29092",
+    "schema.history.internal.kafka.topic": "schemahistory.xpawa",
+    "database.ssl.mode": "disabled",
+    "database.allowPublicKeyRetrieval": "true",
+    "connectionTimeZone": "Africa/Dar_es_Salaam",
+    "topic.prefix": "xpawa"
+  }
+}

@@ -1,0 +1,3 @@
+CREATE USER IF NOT EXISTS 'debezium'@'%' IDENTIFIED WITH 'mysql_native_password' BY 'debezium';
+GRANT REPLICATION SLAVE, REPLICATION CLIENT, SELECT ON *.* TO 'debezium'@'%';
+FLUSH PRIVILEGES;

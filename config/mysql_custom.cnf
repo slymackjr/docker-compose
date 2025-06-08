@@ -1,0 +1,9 @@
+[mysqld]
+server-id=1
+log-bin=mysql-bin
+binlog_format=ROW
+binlog_row_image=FULL
+gtid_mode=ON
+enforce-gtid-consistency=TRUE
+require_secure_transport=OFF
+default_time_zone=Africa/Dar_es_Salaam # Added for EAT
