@@ -1,0 +1,25 @@
+# Ignore Vault's runtime data
+vault/data/
+
+# Ignore specific untracked MSI installer
+corretto11.msi
+
+# Ignore any system-specific temp or backup files
+*~
+*.swp
+*.bak
+
+# Ignore Docker container-related state that shouldn't be versioned
+*.pid
+*.log
+*.tmp
+*.sock
+
+# Optional: Ignore secrets or sensitive files (if applicable)
+*.env
+secrets.*
+
+# Ignore editor-specific files (optional)
+.vscode/
+.idea/
+

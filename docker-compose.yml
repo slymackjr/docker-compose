@@ -127,7 +127,7 @@ services:
     volumes:
       - ./vault/data:/vault/file
       - ./vault/config:/vault/config
-    entrypoint: ./vault/config/entrypoint.sh
+        #    entrypoint: ./vault/config/entrypoint.sh
     cap_add:
       - IPC_LOCK
 
