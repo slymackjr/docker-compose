@@ -95,26 +95,26 @@ services:
   #     - ./node-app:/app
   #   tty: true
 
-  # keycloak:
-  #   image: quay.io/keycloak/keycloak:20.0.5
-  #   container_name: keycloak_service
-  #   ports:
-  #     - "8080:8080"
-  #   environment:
-  #     KEYCLOAK_ADMIN: admin
-  #     KEYCLOAK_ADMIN_PASSWORD: admin
-  #     KC_DB: mysql
-  #     KC_DB_URL: jdbc:mysql://mysql:3306/keycloak?useSSL=false&serverTimezone=Africa/Dar_es_Salaam&allowPublicKeyRetrieval=true
-  #     KC_DB_USERNAME: ${MYSQL_USER}
-  #     KC_DB_PASSWORD: ${MYSQL_PASSWORD}
-  #     KC_HOSTNAME: localhost
-  #     KC_HOSTNAME_STRICT: false
-  #     KC_HTTP_ENABLED: true
-  #    # KC_HOSTNAME_STRICT_HTTPS: false
-  #    # KC_PROXY: edge
-  #   command: start-dev
-  #   depends_on:
-  #     - mysql
+  keycloak:
+    image: quay.io/keycloak/keycloak:20.0.5
+    container_name: keycloak_service
+    ports:
+      - "8080:8080"
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_DB: mysql
+      KC_DB_URL: jdbc:mysql://mysql:3306/keycloak?useSSL=false&serverTimezone=Africa/Dar_es_Salaam&allowPublicKeyRetrieval=true
+      KC_DB_USERNAME: ${MYSQL_USER}
+      KC_DB_PASSWORD: ${MYSQL_PASSWORD}
+      KC_HOSTNAME: localhost
+      KC_HOSTNAME_STRICT: false
+      KC_HTTP_ENABLED: true
+     # KC_HOSTNAME_STRICT_HTTPS: false
+     # KC_PROXY: edge
+    command: start-dev
+    depends_on:
+      - mysql
 
   vault:
     image: vault:1.13.3
@@ -123,13 +123,14 @@ services:
       - "8200:8200"
     environment:
       VAULT_DEV_ROOT_TOKEN_ID: myroot
-      VAULT_DEV_LISTEN_ADDRESS: 0.0.0.0:8200
     volumes:
       - ./vault/data:/vault/file
       - ./vault/config:/vault/config
         #    entrypoint: ./vault/config/entrypoint.sh
     cap_add:
       - IPC_LOCK
+    command:
+      - "server"    
 
   # zookeeper:
   #   image: confluentinc/cp-zookeeper:7.4.4
